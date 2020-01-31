@@ -62,13 +62,13 @@ namespace GGJ.IO {
 
             if (vertical > 0) {
                 SendAction("Forward");
-            } else if (vertical <= 0) {
+            } else if (vertical < 0) {
                 SendAction("Backwards");
             }
 
             if (horizontal > 0) {
                 SendAction("Right");
-            } else if (horizontal <= 0) {
+            } else if (horizontal < 0) {
                 SendAction("Left");
             }
 
