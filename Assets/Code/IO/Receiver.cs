@@ -12,7 +12,7 @@ namespace GGJ.IO {
 
         public string Id { get => id; }
 
-        public void Receive(string action) {
+        public virtual void Receive(string action) {
             Debug.Log(action);
         }
 
