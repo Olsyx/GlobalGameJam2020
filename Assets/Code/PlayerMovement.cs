@@ -30,11 +30,8 @@ namespace GGJ.Player {
             SetUp();
         }
 
-        private void Update() {
-            FollowMouse();
-        }
-
         private void FixedUpdate() {
+            FollowMouse();
             body.velocity -= body.velocity / 10f;
         }
         #endregion
@@ -73,7 +70,7 @@ namespace GGJ.Player {
         #endregion
 
         #region Actions
-        public override void Receive(string action) {
+        public override void Receive(Transmitter source, string action) {
             Direction direction;
             if (Enum.TryParse(action, out direction)) {
                 Move(direction);
