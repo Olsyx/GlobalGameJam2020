@@ -37,7 +37,7 @@ namespace GGJ.Player {
             }
 
             count -= Time.deltaTime;
-            if (count > longClick) {
+            if (count > 0) {
                 return;
             }
             Interact(null, true);

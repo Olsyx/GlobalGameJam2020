@@ -1,11 +1,12 @@
 ﻿using GGJ.Core;
 using GGJ.IO;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace GGJ.Mechanics {
+    [Serializable]
     public class HolderEvents {
         public UnityEvent OnOccupied = new UnityEvent();
         public UnityEvent OnEmptied = new UnityEvent();

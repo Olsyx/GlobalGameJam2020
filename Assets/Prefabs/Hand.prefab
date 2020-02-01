@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: Hand
+  startDisabled: 0
   enterActions:
   - Enter
   hoverActions:
@@ -88,3 +89,10 @@ MonoBehaviour:
   storeAnyPortable: 1
   storablePortables: []
   emptyActions: []
+  events:
+    OnOccupied:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEmptied:
+      m_PersistentCalls:
+        m_Calls: []

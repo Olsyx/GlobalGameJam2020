@@ -56,7 +56,7 @@ namespace GGJ.IO {
             receivers.Remove(receiver);
         }
 
-        public void SendAction(List<string> actions) {
+        public void SendActions(List<string> actions) {
             if (!enabled) {
                 return;
             }
@@ -82,6 +82,7 @@ namespace GGJ.IO {
                 SendAction(actions[i], target);
             }
         }
+
         public void SendAction(string action, Receiver target) {
             if (!enabled || target == null) {
                 return;
