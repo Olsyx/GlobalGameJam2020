@@ -17,6 +17,10 @@ namespace GGJ.Mechanics {
         List<Material> cachedMaterials = new List<Material>();
         List<Shader> cachedShaders = new List<Shader>();
 
+        private void OnDisable() {
+            ResetShaders();
+        }
+
         private void Awake() {
             CacheRenderers();
         }
@@ -41,6 +45,12 @@ namespace GGJ.Mechanics {
                 cachedShaders.Add(cachedMaterials[i].shader);
             }
         }
+
+        protected void ResetShaders() {
+            for (int i = 0; i < cachedMaterials.Count; i++) {
+                cachedMaterials[i].shader = cachedShaders[i];
+            }
+        }
         #endregion
 
         #region Actions
@@ -60,10 +70,7 @@ namespace GGJ.Mechanics {
             if (!enabled) {
                 return;
             }
-
-            for (int i = 0; i < cachedMaterials.Count; i++) {
-                cachedMaterials[i].shader = cachedShaders[i];
-            }
+            ResetShaders();
         }
         #endregion
     }
