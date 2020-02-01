@@ -172,7 +172,7 @@ MonoBehaviour:
   receiver: {fileID: 0}
   startDisabled: 0
   outline: {fileID: 4800000, guid: abbbb3b35557da147837ca9be3593fc0, type: 3}
-  width: 0.1
+  width: 0.02
   color: {r: 0, g: 1, b: 1, a: 1}
   renderers:
   - {fileID: 8927135366215158501}

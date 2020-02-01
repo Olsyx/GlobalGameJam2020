@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace GGJ.Mechanics {
+    [Serializable]
     public class PortableEvents {
         public UnityEvent OnFixed = new UnityEvent();
         public UnityEvent OnFreed = new UnityEvent();

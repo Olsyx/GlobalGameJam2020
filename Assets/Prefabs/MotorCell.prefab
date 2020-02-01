@@ -185,6 +185,13 @@ MonoBehaviour:
   freeActions:
   - LeftHand_Long
   - RightHand_Long
+  events:
+    OnFixed:
+      m_PersistentCalls:
+        m_Calls: []
+    OnFreed:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &7457494834395750602
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +300,7 @@ MonoBehaviour:
   receiver: {fileID: 7457494834039765195}
   startDisabled: 0
   outline: {fileID: 4800000, guid: abbbb3b35557da147837ca9be3593fc0, type: 3}
-  width: 0.1
+  width: 0.02
   color: {r: 0, g: 1, b: 1, a: 1}
   renderers:
   - {fileID: 4851605128545096118}
