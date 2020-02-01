@@ -24,11 +24,14 @@ namespace GGJ.Player {
 
         private float alpha;
 
+        private void Awake() {
+            startPoint = startPoint ?? this.transform;
+        }
+
         private void Start() {
             aim.SetActive(false);
             playerMovement.enabled = false;
             movementTransmitter.enabled = false;
-            startPoint = startPoint ?? this.transform;
         }
 
         private void FixedUpdate() {
