@@ -179,7 +179,7 @@ MonoBehaviour:
   acceptedTransmitters:
   - Player
   source: {fileID: 1046639390009508904}
-  movementSpeed: 0.05
+  movementSpeed: 0.075
   mouseSensitivity: 3
 --- !u!1 &816618477272558130
 GameObject:
