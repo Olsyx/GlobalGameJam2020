@@ -53,8 +53,6 @@ namespace GGJ.Mechanics {
         }
 
         protected void SelectState(int newState) {
-            Debug.Log(receiver.Id + " - Current State: " + states[currentState].id + " - New State: " + states[newState].id);
-
             if (currentState == newState) {
                 return;
             }

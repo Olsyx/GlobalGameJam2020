@@ -11,8 +11,6 @@ namespace GGJ.Utils {
             renderer.material.SetColor("_TintColor", colors[option]);
         }
         public void SetEmissive(int option) {
-            Debug.Log("Emissive color: " + option);
-
             renderer.material.SetColor("_EmissionColor", colors[option]);
         }
     }
