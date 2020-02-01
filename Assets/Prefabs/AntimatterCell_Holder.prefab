@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7578945682768136013}
   - component: {fileID: 5186823907591052308}
+  - component: {fileID: 8782962484380503947}
   - component: {fileID: 7687835226909384079}
   - component: {fileID: 3780413630346425024}
+  - component: {fileID: 2705588609854394672}
   m_Layer: 0
   m_Name: AntimatterCell_Holder
   m_TagString: Untagged
@@ -48,6 +50,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2, z: 0.20485811}
   m_Center: {x: 0, y: 0, z: -0.0024290606}
+--- !u!54 &8782962484380503947
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141255613252680073}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &7687835226909384079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +96,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiver: {fileID: 7687835226909384079}
   startDisabled: 0
+  enableActions: []
+  disableActions: []
+  ablement:
+    OnEnabled:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisabled:
+      m_PersistentCalls:
+        m_Calls: []
   placingPoint: {fileID: 1514413096852946541}
   portable: {fileID: 0}
   storeAnyPortable: 0
@@ -106,6 +133,25 @@ MonoBehaviour:
             m_StringArgument: None
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2705588609854394672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141255613252680073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc2b189f35f820448ec1b4e8eea001b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: AntimatterCell_Disabler
+  startDisabled: 0
+  enterActions: []
+  hoverActions: []
+  exitActions: []
+  actions:
+  - Disable
 --- !u!1 &2886167320773560474
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +229,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiver: {fileID: 7687835226909384079}
   startDisabled: 0
+  enableActions: []
+  disableActions: []
+  ablement:
+    OnEnabled:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisabled:
+      m_PersistentCalls:
+        m_Calls: []
   startState: 2
   cycle: 1
   states:
@@ -218,6 +273,28 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 3780413630346425024}
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2705588609854394672}
+          m_MethodName: SendActions
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

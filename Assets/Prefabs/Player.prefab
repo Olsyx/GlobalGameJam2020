@@ -179,7 +179,7 @@ MonoBehaviour:
   acceptedTransmitters:
   - Player
   source: {fileID: 1046639390009508904}
-  movementSpeed: 0.05
+  movementSpeed: 0.075
   mouseSensitivity: 3
 --- !u!1 &816618477272558130
 GameObject:
@@ -415,7 +415,7 @@ MonoBehaviour:
   - Exit
   camera: {fileID: 1378982259691232394}
   aim: {fileID: 5491316087096734226}
-  maxDistance: 4
+  maxDistance: 1.5
   movement: {fileID: 1046639390009508904}
   leftHand: {fileID: 2686771925952878731}
   rightHand: {fileID: 8180216306926137216}
