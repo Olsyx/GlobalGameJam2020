@@ -55,7 +55,7 @@ MonoBehaviour:
   - Exit
   button: Click
   interaction: Hand
-  longClick: 0.5
+  longClick: 0.25
   slot: {fileID: 3286207707284729815}
 --- !u!65 &2778759138692588665
 BoxCollider:
@@ -84,6 +84,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
   startDisabled: 0
+  enableActions:
+  - Enable
+  disableActions:
+  - Disable
+  ablement:
+    OnEnabled:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisabled:
+      m_PersistentCalls:
+        m_Calls: []
   placingPoint: {fileID: 5233981529286906689}
   portable: {fileID: 0}
   storeAnyPortable: 1
