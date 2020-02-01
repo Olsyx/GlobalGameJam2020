@@ -55,7 +55,7 @@ MonoBehaviour:
   - Exit
   button: Click
   interaction: Hand
-  longClick: 1
+  longClick: 0.5
   slot: {fileID: 3286207707284729815}
 --- !u!65 &2778759138692588665
 BoxCollider:

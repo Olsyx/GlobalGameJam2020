@@ -93,6 +93,35 @@ MonoBehaviour:
   freeActions:
   - LeftHand_Long
   - RightHand_Long
+  events:
+    OnFixed:
+      m_PersistentCalls:
+        m_Calls: []
+    OnFreed:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2000261870838505387}
+          m_MethodName: AddForceFromPlayer
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 25
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2000261870838505387}
+          m_MethodName: AddRandomTorque
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &3932408961264389369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3932408961928841005}
+  - component: {fileID: 2000261870838505387}
   - component: {fileID: 3932408961928841004}
   - component: {fileID: 3932408961928840979}
   m_Layer: 0
@@ -213,6 +243,19 @@ Transform:
   m_Father: {fileID: 3932408961264389374}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000261870838505387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932408961928841006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9c12a06eeb6434580be93f2271d5c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 3932408961264389372}
 --- !u!114 &3932408961928841004
 MonoBehaviour:
   m_ObjectHideFlags: 0
