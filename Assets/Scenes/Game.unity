@@ -1115,6 +1115,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1930612820251782003, guid: 9b1730b8e793e97498de8cca1978b2b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5962479619861216552, guid: 9b1730b8e793e97498de8cca1978b2b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1174,16 +1179,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lighting
-      objectReference: {fileID: 0}
-    - target: {fileID: 5962479620357159120, guid: 9b1730b8e793e97498de8cca1978b2b4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5962479620659771057, guid: 9b1730b8e793e97498de8cca1978b2b4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b1730b8e793e97498de8cca1978b2b4, type: 3}
