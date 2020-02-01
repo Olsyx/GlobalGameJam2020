@@ -1,4 +1,5 @@
 ﻿using GGJ.Cameras;
+using GGJ.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,11 @@ namespace GGJ.Player {
         [Header("Game Settings")]
         public Transform startPoint;
 
+        [Header("Audio Settings")]
+        public AudioMixer mixer;
+        public AudioClip ambient;
+        public AudioClip mainTheme;
+
         private float alpha;
 
         #region Mono Behaviour
@@ -31,6 +37,9 @@ namespace GGJ.Player {
         }
 
         private void Start() {
+            mixer.Select(0);
+            mixer.SetLoop(true);
+            mixer.Play(mainTheme);
             Open();
         }
 
@@ -95,6 +104,14 @@ namespace GGJ.Player {
             menu.SetActive(false);
             cameraControl.FadeOut();
             Invoke("SetUpPlayer", cameraControl.fadeTime * 2f);
+
+            mixer.Select(1);
+            mixer.Set(ambient);
+            mixer.Select(0);
+            mixer.SetLoop(false);
+            mixer.SetTransitionTime(5f);
+            mixer.SetPivot(0.95f);
+            mixer.MixWith(1);
         }
 
         

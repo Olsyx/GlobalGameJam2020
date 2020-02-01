@@ -31,7 +31,7 @@ RectTransform:
   - {fileID: 8911566466441680879}
   - {fileID: 9002647836451628676}
   m_Father: {fileID: 1370148346662329634}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -505,6 +505,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 7204699986553133985}
   - {fileID: 7696882385990612185}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -592,6 +593,97 @@ MonoBehaviour:
   aim: {fileID: 0}
   player: {fileID: 0}
   cameraControl: {fileID: 0}
+  input: {fileID: 0}
   playerMovement: {fileID: 0}
   movementTransmitter: {fileID: 0}
   startPoint: {fileID: 0}
+  mixer: {fileID: 3699079000417426830}
+  ambient: {fileID: 0}
+  mainTheme: {fileID: 8300000, guid: 1f6ee3bc469506b4fb11da1173ee1313, type: 3}
+--- !u!1001 &8743899894811322173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1370148346662329634}
+    m_Modifications:
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.1617432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.0067139
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.314453
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107485645686972156, guid: cb81a037dd9173c43ace598ec2031f92,
+        type: 3}
+      propertyPath: m_Name
+      value: AmbientMusic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cb81a037dd9173c43ace598ec2031f92, type: 3}
+--- !u!4 &7204699986553133985 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1919851582796545180, guid: cb81a037dd9173c43ace598ec2031f92,
+    type: 3}
+  m_PrefabInstance: {fileID: 8743899894811322173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3699079000417426830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5336016104260188851, guid: cb81a037dd9173c43ace598ec2031f92,
+    type: 3}
+  m_PrefabInstance: {fileID: 8743899894811322173}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0111fa40e7a85a94fae7678184d17b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
