@@ -57,7 +57,6 @@ namespace GGJ.Mechanics {
                 return;
             }
 
-            Debug.Log(receiver.Id + " - New State: " + states[newState].id);
             states[currentState].OnExited?.Invoke();
             currentState = newState;
             states[currentState].OnEntered?.Invoke();
