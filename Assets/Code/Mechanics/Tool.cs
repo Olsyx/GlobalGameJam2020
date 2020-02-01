@@ -9,44 +9,36 @@ namespace GGJ.Mechanics {
     public class Tool : Transmitter, IReceiverListener {
         
         public Receiver receiver;
-        public bool startDisabled = false;
         public List<string> activateActions = new List<string>() { "LeftHand", "RightHand" };
         public string interaction = "Action";
         
         private Portable portable;
-                
+
         #region Mono Behaviour
-        private void Awake() {
-            StoreProperties();
-            Init();
-        }
-
-        private void Start() {
-            StoreReferences();
-            SetUp();
-            enabled = !startDisabled;
-        }
-
         protected virtual void OnDestroy() {
             receiver?.Remove(this);
         }
         #endregion
 
         #region Init
-        protected virtual void StoreProperties() {
+        protected override void StoreProperties() {
+            base.StoreProperties();
             receiver = receiver ?? GetComponentInParent<Receiver>();
             portable = GetComponent<Portable>();
         }
 
-        protected virtual void Init() {
+        protected override void Init() {
+            base.Init();
 
         }
 
-        protected virtual void StoreReferences() {
+        protected override void StoreReferences() {
+            base.StoreReferences();
 
         }
 
-        protected virtual void SetUp() {
+        protected override void SetUp() {
+            base.SetUp();
             receiver?.Register(this);
         }
         #endregion
