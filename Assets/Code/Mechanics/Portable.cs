@@ -18,7 +18,6 @@ namespace GGJ.Mechanics {
     }
 
     [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(Collider))]
     public class Portable : Mechanic {
         public enum Locations {
             Free, Fixed
@@ -26,8 +25,8 @@ namespace GGJ.Mechanics {
 
         public bool useGravity = true;
         public Transform placingPoint;
-        public List<string> fixActions = new List<string>();
-        public List<string> freeActions = new List<string>();
+        public List<string> fixActions = new List<string>() { "LeftHand", "RightHand" };
+        public List<string> freeActions = new List<string>() { "LeftHand_Long", "RightHand_Long" };
         public PortableEvents events = new PortableEvents();
 
         public Holder Holder { get => holder; }

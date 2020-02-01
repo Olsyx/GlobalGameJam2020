@@ -59,7 +59,7 @@ namespace GGJ.Mechanics {
         }
 
         protected void Place(Portable target) {
-            target.Self.rotation = this.placingPoint.rotation * Quaternion.Inverse(portable.Self.localRotation);
+            target.Self.rotation = this.placingPoint.rotation * Quaternion.Inverse(portable.placingPoint.localRotation);
             Vector3 positionOffset = portable.placingPoint.position - portable.Self.position;
             target.Self.position = this.placingPoint.position - positionOffset;
         }

@@ -12,7 +12,7 @@ namespace GGJ.IO {
 
         [SerializeField] protected string id;
         [SerializeField] protected bool acceptAnySource;
-        [SerializeField] protected List<string> acceptedTransmitters = new List<string>() { "LeftHand", "RightHand" };
+        [SerializeField] protected List<string> acceptedTransmitters = new List<string>() { "Player", "LeftHand", "RightHand" };
 
         public string Id { get => id; }
 

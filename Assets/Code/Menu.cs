@@ -24,14 +24,13 @@ namespace GGJ.Player {
 
         private float alpha;
 
+        #region Mono Behaviour
         private void Awake() {
             startPoint = startPoint ?? this.transform;
         }
 
         private void Start() {
-            aim.SetActive(false);
-            playerMovement.enabled = false;
-            movementTransmitter.enabled = false;
+            Open();
         }
 
         private void FixedUpdate() {
@@ -43,9 +42,51 @@ namespace GGJ.Player {
                 return;
             }
 
-            menu.SetActive(!menu.activeInHierarchy);
+            if (menu.activeInHierarchy) {
+                Close();
+            } else {
+                Open();
+            }
+        }
+        #endregion
+
+        #region Control
+        private void Open() {
+            menu.SetActive(true);
+            StopPlayer();
         }
 
+        private void Close() {
+            menu.SetActive(false);
+            ResumePlayer();
+        }
+
+        private void StopPlayer() {
+            aim.SetActive(false);
+            playerMovement.enabled = false;
+            movementTransmitter.enabled = false;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+
+        private void ResumePlayer() {
+            aim.SetActive(true);
+            playerMovement.enabled = true;
+            movementTransmitter.enabled = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        private void SetUpPlayer() {
+            player.position = startPoint.position;
+            player.rotation = startPoint.rotation;
+
+            ResumePlayer();
+            cameraControl.FadeIn();
+        }
+        #endregion
+
+        #region Actions
         public void StartGame() {
             startButton.SetActive(false);
             menu.SetActive(false);
@@ -53,18 +94,10 @@ namespace GGJ.Player {
             Invoke("SetUpPlayer", cameraControl.fadeTime * 2f);
         }
 
-        private void SetUpPlayer() {
-            player.position = startPoint.position;
-            player.rotation = startPoint.rotation;
-
-            aim.SetActive(true);
-            playerMovement.enabled = true;
-            movementTransmitter.enabled = true;
-            cameraControl.FadeIn();
-        }
         
         public void Exit() {
             Application.Quit();
         }
+        #endregion
     }
 }
