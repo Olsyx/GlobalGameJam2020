@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e8079c45b6f9a45928e50c2d7250b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiver: {fileID: 0}
+  receiver: {fileID: 8927135366718374602}
   startDisabled: 0
   outline: {fileID: 4800000, guid: abbbb3b35557da147837ca9be3593fc0, type: 3}
   width: 0.02
@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 8927135366718374601}
   - component: {fileID: 8927135366718374602}
   - component: {fileID: 8927135366718374600}
+  - component: {fileID: 4732146096279204072}
   m_Layer: 0
   m_Name: AntimatterCell
   m_TagString: Untagged
@@ -370,6 +371,46 @@ MonoBehaviour:
   freeActions:
   - LeftHand_Long
   - RightHand_Long
+  events:
+    OnFixed:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4732146096279204072}
+          m_MethodName: SendDelayedActions
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0.1
+            m_StringArgument: OK
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnFreed:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &4732146096279204072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927135366718374605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc2b189f35f820448ec1b4e8eea001b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: AntimatterCell
+  startDisabled: 0
+  enterActions:
+  - Enter
+  hoverActions:
+  - Hover
+  exitActions:
+  - Exit
+  actions:
+  - OK
 --- !u!1 &8927135367005166283
 GameObject:
   m_ObjectHideFlags: 0

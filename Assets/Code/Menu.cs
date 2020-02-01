@@ -16,6 +16,7 @@ namespace GGJ.Player {
         [Header("Player Settings")]
         public Transform player;
         public CameraEffects cameraControl;
+        public PlayerInput input;
         public PlayerMovement playerMovement;
         public MovementTransmitter movementTransmitter;
 
@@ -63,6 +64,7 @@ namespace GGJ.Player {
 
         private void StopPlayer() {
             aim.SetActive(false);
+            input.enabled = false;
             playerMovement.enabled = false;
             movementTransmitter.enabled = false;
             Cursor.lockState = CursorLockMode.Confined;
@@ -71,6 +73,7 @@ namespace GGJ.Player {
 
         private void ResumePlayer() {
             aim.SetActive(true);
+            input.enabled = true;
             playerMovement.enabled = true;
             movementTransmitter.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;

@@ -26,6 +26,10 @@ namespace GGJ.Mechanics {
         #endregion
 
         #region Init
+        protected override void StoreProperties() {
+            base.StoreProperties();
+            currentState = startState;
+        }
         #endregion
 
         #region Control
@@ -53,6 +57,7 @@ namespace GGJ.Mechanics {
                 return;
             }
 
+            Debug.Log(receiver.Id + " - New State: " + states[newState].id);
             states[currentState].OnExited?.Invoke();
             currentState = newState;
             states[currentState].OnEntered?.Invoke();
@@ -60,6 +65,19 @@ namespace GGJ.Mechanics {
         #endregion
 
         #region Actions
+        public void Set(string state) {
+            int target = states.FindIndex(s => s.id == state);
+            SelectState(target);
+        }
+
+        public void Set(int state) {
+            if (!enabled || state < 0 || state >= states.Count) {
+                return;
+            }
+
+            SelectState(state);
+        }
+
         public void Next() {
             if (!enabled) {
                 return;
@@ -99,7 +117,7 @@ namespace GGJ.Mechanics {
                 i++;
             }
 
-            return i < states.Count ? i - 1 : -1;
+            return i < states.Count ? i : -1;
         }
 
         #endregion
