@@ -26,19 +26,25 @@ namespace GGJ.IO {
         }
 
         public void SendAction(List<string> actions) {
+            if (!enabled) {
+                return;
+            }
             for (int i = 0; i < receivers.Count; i++) {
                 SendAction(actions, receivers[i]);
             }
         }
 
         public void SendAction(string action) {
+            if (!enabled) {
+                return;
+            }
             for (int i = 0; i < receivers.Count; i++) {
                 SendAction(action, receivers[i]);
             }
         }
 
         public void SendAction(List<string> actions, Receiver target) {
-            if (target == null) {
+            if (!enabled || target == null) {
                 return;
             }
             for (int i = 0; i < actions.Count; i++) {
@@ -46,10 +52,10 @@ namespace GGJ.IO {
             }
         }
         public void SendAction(string action, Receiver target) {
-            if (target == null) {
+            if (!enabled || target == null) {
                 return;
             }
-            target.Receive(action);
+            target.Receive(this, action);
         }
     }
 }

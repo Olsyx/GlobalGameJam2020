@@ -7,21 +7,23 @@ namespace GGJ.IO {
     public class PlayerInput : Transmitter {
 
         [Header("Behaviour")]
+        public Transform camera;
         public Transform aim;
         public float maxDistance = 2.5f;
 
-        [Header("Buttons")]
-        public string leftHandButton = "LeftClick";
-        public string leftHandInteraction = "LeftHand";
-        public string rightHandButton = "RightClick";
-        public string rightHandInteraction = "RightHand";
-        public string upButton = "Up";
-        public string downButton = "Down";
+        [Header("Transmitters")]
+        public MovementTransmitter movement;
+        public HandTransmitter leftHand;
+        public HandTransmitter rightHand;
 
-        Receiver cachedReceiver;
+        public GameObject CurrentTarget { get; protected set; }
+        public Receiver CurrentReceiver { get; protected set; }
 
         #region Mono Behaviour
-        private void FixedUpdate() {
+        private void Update() {
+            if (!enabled) {
+                return;
+            }
             FindTarget();
             ManageUnityInput();
         }
@@ -30,66 +32,71 @@ namespace GGJ.IO {
         #region Control
         private void FindTarget() {
             RaycastHit hit;
-            if (!Physics.Raycast(transform.position, GetAimVector(), out hit, maxDistance)) {
+            if (!Physics.Raycast(camera.position, GetAimVector(), out hit, maxDistance)) {
+                StoreReceiver(null);
+                CurrentTarget = hit.collider?.gameObject;
                 return;
             }
 
-            Receiver newReceiver = hit.collider.GetComponentInParent<Receiver>(); ;
+            CurrentTarget = hit.collider.gameObject;
+            Receiver newReceiver = CurrentTarget.GetComponentInParent<Receiver>();
+            StoreReceiver(newReceiver);
+        }
 
-            if (cachedReceiver == newReceiver) {
-                SendAction(hoverActions, cachedReceiver);
+        private void StoreReceiver(Receiver newReceiver) {
+            if (CurrentReceiver == newReceiver) {
+                SendAction(hoverActions, CurrentReceiver);
                 return;
             }
 
-            Remove(cachedReceiver);
-            SendAction(exitActions, cachedReceiver);
-            cachedReceiver = newReceiver;
-            Register(cachedReceiver);
-            SendAction(enterActions, cachedReceiver);
+            Remove(CurrentReceiver);
+            SendAction(exitActions, CurrentReceiver);
+            CurrentReceiver = newReceiver;
+
+            if (CurrentReceiver == null) {
+                return;
+            }
+            Register(CurrentReceiver);
+            SendAction(enterActions, CurrentReceiver);
         }
 
         private void ManageUnityInput() {
-            if (Input.GetButtonUp(rightHandButton)) {
-                SendAction(rightHandInteraction);
-            }
-
-            if (Input.GetButtonUp(leftHandButton)) {
-                SendAction(leftHandInteraction);
-            }
-
-            float vertical = Input.GetAxis("Vertical");
-            float horizontal = Input.GetAxis("Horizontal");
+            rightHand?.UpdateInput(CurrentReceiver);
+            leftHand?.UpdateInput(CurrentReceiver);
+            
+            float vertical = Input.GetAxis(movement.verticalAxis);
+            float horizontal = Input.GetAxis(movement.horizontalAxis);
 
             if (vertical > 0) {
-                SendAction("Forward");
+                movement.Forward();
             } else if (vertical < 0) {
-                SendAction("Backwards");
+                movement.Backwards();
             }
 
             if (horizontal > 0) {
-                SendAction("Right");
+                movement.Right();
             } else if (horizontal < 0) {
-                SendAction("Left");
+                movement.Left();
             }
 
-            if (Input.GetButton(upButton)) {
-                SendAction("Up");
-            } else if (Input.GetButton(downButton)) {
-                SendAction("Down");
+            if (Input.GetButton(movement.upButton)) {
+                movement.Up();
+            } else if (Input.GetButton(movement.downButton)) {
+                movement.Down();
             }
         }
         #endregion
 
         #region Queries
         private Vector3 GetAimVector() {
-            return  aim.position - transform.position;
+            return  aim.position - camera.position;
         }
         #endregion
 
         #region Debug
         private void OnDrawGizmos() {
             Gizmos.color = Color.blue;
-            Gizmos.DrawLine(transform.position, transform.position + GetAimVector() * maxDistance);
+            Gizmos.DrawLine(camera.position, camera.position + GetAimVector() * maxDistance);
         }
         #endregion
 

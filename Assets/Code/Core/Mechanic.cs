@@ -7,6 +7,7 @@ namespace GGJ.Core {
     public abstract class Mechanic : MonoBehaviour, IReceiverListener {
 
         public Receiver receiver;
+        public bool startDisabled = false;
 
         #region Mono Behaviour
         private void Awake() {
@@ -17,10 +18,11 @@ namespace GGJ.Core {
         private void Start() {
             StoreReferences();
             SetUp();
+            enabled = !startDisabled;
         }
 
-        private void OnDestroy() {
-            receiver.Remove(this);
+        protected virtual void OnDestroy() {
+            receiver?.Remove(this);
         }
         #endregion
 
@@ -38,12 +40,20 @@ namespace GGJ.Core {
         }
 
         protected virtual void SetUp() {
-            receiver.Register(this);
+            receiver?.Register(this);
         }
         #endregion
 
         #region Control
-        public abstract void Receive(string action);
+        public void Receive(Transmitter source, string action) {
+            if (!enabled) {
+                return;
+            }
+
+            React(source, action);
+        }
+
+        protected abstract void React(Transmitter source, string action);
         #endregion
 
         #region Actions
