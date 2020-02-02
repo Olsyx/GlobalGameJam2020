@@ -9,6 +9,8 @@ namespace GGJ.Behaviours {
         public Selector lightSwitch;
         public List<Holder> holders = new List<Holder>();
         public List<int> order = new List<int>() { 0, 4, 1, 3, 2 };
+        public UnityEvent OnLightsOn = new UnityEvent();
+        public UnityEvent OnLightsOff = new UnityEvent();
         public UnityEvent OnFinished = new UnityEvent();
 
         int progress = 0;
@@ -23,6 +25,9 @@ namespace GGJ.Behaviours {
         void LightSwitchChanged() {
             if (lightSwitch.CurrentState == "On") {
                 EmptyAll();
+                OnLightsOn?.Invoke();
+            } else {
+                OnLightsOff?.Invoke();
             }
         }
         
