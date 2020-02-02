@@ -29,16 +29,20 @@ namespace GGJ.Core {
 
         #region Mono Behaviour
         private void OnEnable() {
+            if (initFlag) {
+                return;
+            }
+
             ablement.OnEnabled?.Invoke();
         }
 
         private void OnDisable() {
             if (initFlag) {
+                initFlag = false;
                 return;
             }
 
             ablement.OnDisabled?.Invoke();
-            initFlag = false;
         }
 
         private void Awake() {
