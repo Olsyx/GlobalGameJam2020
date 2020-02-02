@@ -614,19 +614,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1623398234}
     m_Modifications:
-    - target: {fileID: 1268496063946199711, guid: 9facff1bddd1d6c4b85a33809e010066,
-        type: 3}
-      propertyPath: renderers.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1268496064618453323, guid: 9facff1bddd1d6c4b85a33809e010066,
         type: 3}
       propertyPath: m_Name
-      value: MotorCell_Green
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268496064618453324, guid: 9facff1bddd1d6c4b85a33809e010066,
-        type: 3}
-      propertyPath: id
       value: MotorCell_Green
       objectReference: {fileID: 0}
     - target: {fileID: 1268496064618453325, guid: 9facff1bddd1d6c4b85a33809e010066,
@@ -684,11 +674,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1356244381585134189, guid: 9facff1bddd1d6c4b85a33809e010066,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: a1270fd50bcac6d448d4a48676ce51a0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9facff1bddd1d6c4b85a33809e010066, type: 3}
 --- !u!4 &883364920 stripped
@@ -961,11 +946,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1623398234}
     m_Modifications:
-    - target: {fileID: 1268496063946199711, guid: 9facff1bddd1d6c4b85a33809e010066,
-        type: 3}
-      propertyPath: renderers.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1268496064618453323, guid: 9facff1bddd1d6c4b85a33809e010066,
         type: 3}
       propertyPath: m_Name
@@ -1087,11 +1067,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1623398234}
     m_Modifications:
-    - target: {fileID: 1268496063946199711, guid: 9facff1bddd1d6c4b85a33809e010066,
-        type: 3}
-      propertyPath: renderers.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1268496064618453323, guid: 9facff1bddd1d6c4b85a33809e010066,
         type: 3}
       propertyPath: m_Name
@@ -1177,11 +1152,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1623398234}
     m_Modifications:
-    - target: {fileID: 1268496063946199711, guid: 9facff1bddd1d6c4b85a33809e010066,
-        type: 3}
-      propertyPath: renderers.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1268496064618453323, guid: 9facff1bddd1d6c4b85a33809e010066,
         type: 3}
       propertyPath: m_Name
@@ -1849,11 +1819,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1623398234}
     m_Modifications:
-    - target: {fileID: 1268496063946199711, guid: 9facff1bddd1d6c4b85a33809e010066,
-        type: 3}
-      propertyPath: renderers.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1268496064618453323, guid: 9facff1bddd1d6c4b85a33809e010066,
         type: 3}
       propertyPath: m_Name
