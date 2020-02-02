@@ -13,6 +13,7 @@ namespace GGJ.Player {
         public GameObject menu;
         public GameObject startButton;
         public GameObject aim;
+        public GameObject controls;
         public GameObject credits;
 
         [Header("Player Settings")]
@@ -129,6 +130,7 @@ namespace GGJ.Player {
             yield return new WaitForSeconds(5f);
             cameraControl.FadeOut();
             Open();
+            controls.SetActive(false);
             credits.SetActive(true);
         }
 
