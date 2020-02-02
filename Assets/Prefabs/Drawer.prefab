@@ -2121,6 +2121,26 @@ PrefabInstance:
       propertyPath: portable
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3780413630346425024, guid: d5bbcf7828f71a14699220550555b0b4,
+        type: 3}
+      propertyPath: events.OnOccupied.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780413630346425024, guid: d5bbcf7828f71a14699220550555b0b4,
+        type: 3}
+      propertyPath: events.OnOccupied.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780413630346425024, guid: d5bbcf7828f71a14699220550555b0b4,
+        type: 3}
+      propertyPath: events.OnOccupied.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780413630346425024, guid: d5bbcf7828f71a14699220550555b0b4,
+        type: 3}
+      propertyPath: events.OnOccupied.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 3083a60047a9a6d4a958fb997b141e90, type: 3}
     - target: {fileID: 7578945682768136013, guid: d5bbcf7828f71a14699220550555b0b4,
         type: 3}
       propertyPath: m_LocalPosition.x
