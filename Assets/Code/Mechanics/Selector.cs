@@ -19,7 +19,9 @@ namespace GGJ.Mechanics {
         public List<State> states = new List<State>();
         public List<string> nextActions = new List<string>();
         public List<string> previousActions = new List<string>();
+        public UnityEvent OnStateChanged = new UnityEvent();
 
+        public string CurrentState { get => states[currentState].id; }
         protected int currentState = 0;
 
         #region Mono Behaviour
@@ -60,6 +62,7 @@ namespace GGJ.Mechanics {
             states[currentState].OnExited?.Invoke();
             currentState = newState;
             states[currentState].OnEntered?.Invoke();
+            OnStateChanged?.Invoke();
         }
         #endregion
 

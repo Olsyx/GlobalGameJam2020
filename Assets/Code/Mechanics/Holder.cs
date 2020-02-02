@@ -6,10 +6,12 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace GGJ.Mechanics {
+    [Serializable] public class HolderEvent : UnityEvent<Holder> {}
+
     [Serializable]
     public class HolderEvents {
-        public UnityEvent OnOccupied = new UnityEvent();
-        public UnityEvent OnEmptied = new UnityEvent();
+        public HolderEvent OnOccupied = new HolderEvent();
+        public HolderEvent OnEmptied = new HolderEvent();
 
         public void RemoveAllListeners() {
             OnOccupied.RemoveAllListeners();
@@ -82,7 +84,7 @@ namespace GGJ.Mechanics {
             State = States.Occupied;
 
             if (!silently) {
-                events.OnOccupied?.Invoke();
+                events.OnOccupied?.Invoke(this);
             }
         }
 
@@ -99,7 +101,7 @@ namespace GGJ.Mechanics {
             portable = null;
             State = States.Empty;
             if (!silently) {
-                events.OnEmptied?.Invoke();
+                events.OnEmptied?.Invoke(this);
             }
         }
         #endregion
