@@ -4,7 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GGJ.Player { 
+namespace GGJ.Player
+{
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(Collider))]
     public class PlayerMovement : Receiver {
@@ -20,36 +21,43 @@ namespace GGJ.Player {
         private float rotationY = 0f;
 
         #region Mono Behaviour
-        private void Awake() {
+        private void Awake()
+        {
             StoreProperties();
             Init();
         }
 
-        private void Start() {
+        private void Start()
+        {
             StoreReferences();
             SetUp();
         }
 
-        private void FixedUpdate() {
+        private void FixedUpdate()
+        {
             FollowMouse();
             body.velocity -= body.velocity / 10f;
         }
         #endregion
 
         #region Init
-        private void StoreProperties() {
+        private void StoreProperties()
+        {
             body = GetComponent<Rigidbody>();
         }
 
-        private void Init() {
+        private void Init()
+        {
 
         }
 
-        private void StoreReferences() {
+        private void StoreReferences()
+        {
 
         }
 
-        private void SetUp() {
+        private void SetUp()
+        {
             source.Register(this);
         }
         #endregion
@@ -62,24 +70,29 @@ namespace GGJ.Player {
             transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0.0f);
         }
 
-        protected void Move(Direction direction) {
+        protected void Move(Direction direction)
+        {
             Vector3 vector = GetDirectionVector(direction);
             body.AddForce(vector * movementSpeed * 100f);
         }
         #endregion
 
         #region Actions
-        public override void Receive(Transmitter source, string action) {
+        public override void Receive(Transmitter source, string action)
+        {
             Direction direction;
-            if (Enum.TryParse(action, out direction)) {
+            if (Enum.TryParse(action, out direction))
+            {
                 Move(direction);
             }
         }
         #endregion
 
         #region Queries
-        private Vector3 GetDirectionVector(Direction direction) {
-            switch (direction) {
+        private Vector3 GetDirectionVector(Direction direction)
+        {
+            switch (direction)
+            {
                 case Direction.Forward:
                     return transform.forward;
                 case Direction.Backwards:
