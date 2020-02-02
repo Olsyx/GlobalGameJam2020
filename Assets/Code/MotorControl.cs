@@ -24,7 +24,9 @@ namespace GGJ.Behaviours {
 
         void LightSwitchChanged() {
             if (lightSwitch.CurrentState == "On") {
-                EmptyAll();
+                if (progress < order.Count) {
+                    EmptyAll();
+                }
                 OnLightsOn?.Invoke();
             } else {
                 OnLightsOff?.Invoke();
