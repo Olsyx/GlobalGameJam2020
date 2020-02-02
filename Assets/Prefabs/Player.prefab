@@ -179,7 +179,7 @@ MonoBehaviour:
   acceptedTransmitters:
   - Player
   source: {fileID: 1046639390009508904}
-  movementSpeed: 0.05
+  movementSpeed: 0.075
   mouseSensitivity: 3
 --- !u!1 &816618477272558130
 GameObject:
@@ -415,7 +415,7 @@ MonoBehaviour:
   - Exit
   camera: {fileID: 1378982259691232394}
   aim: {fileID: 5491316087096734226}
-  maxDistance: 2.5
+  maxDistance: 1.5
   movement: {fileID: 1046639390009508904}
   leftHand: {fileID: 2686771925952878731}
   rightHand: {fileID: 8180216306926137216}
@@ -606,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 5233981529286906689, guid: 78b63dbc3c91d8743ab530ea8065e6fd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6999998
+      value: 0.61200047
       objectReference: {fileID: 0}
     - target: {fileID: 5233981529286906689, guid: 78b63dbc3c91d8743ab530ea8065e6fd,
         type: 3}
@@ -713,7 +713,7 @@ PrefabInstance:
     - target: {fileID: 5233981529286906689, guid: 78b63dbc3c91d8743ab530ea8065e6fd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6999998
+      value: 0.612
       objectReference: {fileID: 0}
     - target: {fileID: 5233981529286906689, guid: 78b63dbc3c91d8743ab530ea8065e6fd,
         type: 3}
@@ -917,6 +917,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 5491316087212175565}
+    - target: {fileID: 5432024226084959114, guid: 3601eeedaa617e64ca168aa842ca435f,
+        type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 5491316087212175564}
     - target: {fileID: 8674336834682930185, guid: 3601eeedaa617e64ca168aa842ca435f,
         type: 3}
       propertyPath: m_Name

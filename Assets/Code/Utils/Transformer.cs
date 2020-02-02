@@ -12,7 +12,7 @@ namespace GGJ.Utils {
         public float time = 0;
         public List<Vector3> options = new List<Vector3>();
 
-        public float count;
+        protected float count;
         protected Modes mode;
         protected Vector3 from;
         protected Vector3 to;

@@ -12,7 +12,7 @@ namespace GGJ.IO {
 
         [SerializeField] protected string id;
         [SerializeField] protected bool acceptAnySource;
-        [SerializeField] protected List<string> acceptedTransmitters = new List<string>() { "LeftHand", "RightHand" };
+        [SerializeField] protected List<string> acceptedTransmitters = new List<string>() { "Player", "LeftHand", "RightHand" };
 
         public string Id { get => id; }
 
@@ -29,6 +29,10 @@ namespace GGJ.IO {
             listeners.Remove(listener);
         }
         
+        public virtual void Receive(string action) {
+            Receive(null, action);
+        }
+
         public virtual void Receive(Transmitter source, string action) {
             if (!enabled || !IsValidTransmitter(source)) {
                 return;

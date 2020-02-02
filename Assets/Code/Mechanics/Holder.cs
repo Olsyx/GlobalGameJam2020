@@ -1,11 +1,12 @@
 ﻿using GGJ.Core;
 using GGJ.IO;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace GGJ.Mechanics {
+    [Serializable]
     public class HolderEvents {
         public UnityEvent OnOccupied = new UnityEvent();
         public UnityEvent OnEmptied = new UnityEvent();
@@ -59,7 +60,7 @@ namespace GGJ.Mechanics {
         }
 
         protected void Place(Portable target) {
-            target.Self.rotation = this.placingPoint.rotation * Quaternion.Inverse(portable.Self.localRotation);
+            target.Self.rotation = this.placingPoint.rotation * Quaternion.Inverse(portable.placingPoint.localRotation);
             Vector3 positionOffset = portable.placingPoint.position - portable.Self.position;
             target.Self.position = this.placingPoint.position - positionOffset;
         }

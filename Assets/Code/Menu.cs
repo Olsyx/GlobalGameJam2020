@@ -1,4 +1,5 @@
 ﻿using GGJ.Cameras;
+using GGJ.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,22 +17,30 @@ namespace GGJ.Player {
         [Header("Player Settings")]
         public Transform player;
         public CameraEffects cameraControl;
+        public PlayerInput input;
         public PlayerMovement playerMovement;
         public MovementTransmitter movementTransmitter;
 
         [Header("Game Settings")]
         public Transform startPoint;
 
+        [Header("Audio Settings")]
+        public AudioMixer mixer;
+        public AudioClip ambient;
+        public AudioClip mainTheme;
+
         private float alpha;
 
+        #region Mono Behaviour
         private void Awake() {
             startPoint = startPoint ?? this.transform;
         }
 
         private void Start() {
-            aim.SetActive(false);
-            playerMovement.enabled = false;
-            movementTransmitter.enabled = false;
+            mixer.Select(0);
+            mixer.SetLoop(true);
+            mixer.Play(mainTheme);
+            Open();
         }
 
         private void FixedUpdate() {
@@ -43,28 +52,72 @@ namespace GGJ.Player {
                 return;
             }
 
-            menu.SetActive(!menu.activeInHierarchy);
+            if (menu.activeInHierarchy) {
+                Close();
+            } else {
+                Open();
+            }
+        }
+        #endregion
+
+        #region Control
+        private void Open() {
+            menu.SetActive(true);
+            StopPlayer();
         }
 
-        public void StartGame() {
-            startButton.SetActive(false);
+        private void Close() {
             menu.SetActive(false);
-            cameraControl.FadeOut();
-            Invoke("SetUpPlayer", cameraControl.fadeTime * 2f);
+            ResumePlayer();
+        }
+
+        private void StopPlayer() {
+            aim.SetActive(false);
+            input.enabled = false;
+            playerMovement.enabled = false;
+            movementTransmitter.enabled = false;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+
+        private void ResumePlayer() {
+            aim.SetActive(true);
+            input.enabled = true;
+            playerMovement.enabled = true;
+            movementTransmitter.enabled = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         private void SetUpPlayer() {
             player.position = startPoint.position;
             player.rotation = startPoint.rotation;
 
-            aim.SetActive(true);
-            playerMovement.enabled = true;
-            movementTransmitter.enabled = true;
+            ResumePlayer();
             cameraControl.FadeIn();
         }
+        #endregion
+
+        #region Actions
+        public void StartGame() {
+            startButton.SetActive(false);
+            menu.SetActive(false);
+            cameraControl.FadeOut();
+            Invoke("SetUpPlayer", cameraControl.fadeTime * 2f);
+
+            mixer.Select(1);
+            mixer.Set(ambient);
+            mixer.Select(0);
+            mixer.SetLoop(false);
+            mixer.SetTransitionTime(5f);
+            mixer.SetPivot(0.95f);
+            mixer.MixWith(1);
+        }
+
         
         public void Exit() {
             Application.Quit();
         }
+        #endregion
     }
 }

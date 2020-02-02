@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: Hand
+  startDisabled: 0
   enterActions:
   - Enter
   hoverActions:
@@ -54,7 +55,7 @@ MonoBehaviour:
   - Exit
   button: Click
   interaction: Hand
-  longClick: 1
+  longClick: 0.25
   slot: {fileID: 3286207707284729815}
 --- !u!65 &2778759138692588665
 BoxCollider:
@@ -83,8 +84,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
   startDisabled: 0
+  enableActions:
+  - Enable
+  disableActions:
+  - Disable
+  ablement:
+    OnEnabled:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisabled:
+      m_PersistentCalls:
+        m_Calls: []
   placingPoint: {fileID: 5233981529286906689}
   portable: {fileID: 0}
   storeAnyPortable: 1
   storablePortables: []
   emptyActions: []
+  events:
+    OnOccupied:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEmptied:
+      m_PersistentCalls:
+        m_Calls: []

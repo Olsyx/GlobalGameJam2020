@@ -7,6 +7,8 @@ using UnityEngine;
 namespace GGJ.Player {
     public class PlayerInput : Transmitter {
 
+        public static PlayerInput Instance;
+
         [Header("Behaviour")]
         public Transform camera;
         public Transform aim;
@@ -21,6 +23,12 @@ namespace GGJ.Player {
         public Receiver CurrentReceiver { get; protected set; }
 
         #region Mono Behaviour
+        protected override void Init() {
+            base.Init();
+            Destroy(Instance?.transform.root);
+            Instance = this;
+        }
+
         private void Update() {
             if (!enabled) {
                 return;
@@ -89,7 +97,7 @@ namespace GGJ.Player {
         #endregion
 
         #region Queries
-        private Vector3 GetAimVector() {
+        public Vector3 GetAimVector() {
             return  aim.position - camera.position;
         }
         #endregion
