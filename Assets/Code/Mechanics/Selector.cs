@@ -89,7 +89,7 @@ namespace GGJ.Mechanics {
             if (cycle) {
                 newState = newState < states.Count ? newState : 0;
             } else {
-                newState = Mathf.Max(states.Count, newState);
+                newState = Mathf.Max(states.Count - 1, newState);
             }
 
             SelectState(newState);

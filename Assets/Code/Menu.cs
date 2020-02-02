@@ -13,6 +13,7 @@ namespace GGJ.Player {
         public GameObject menu;
         public GameObject startButton;
         public GameObject aim;
+        public GameObject credits;
 
         [Header("Player Settings")]
         public Transform player;
@@ -23,6 +24,8 @@ namespace GGJ.Player {
 
         [Header("Game Settings")]
         public Transform startPoint;
+        public Transformer moveAsteroidField;
+        public Transformer rotateAsteroidField;
 
         [Header("Audio Settings")]
         public AudioMixer mixer;
@@ -112,6 +115,21 @@ namespace GGJ.Player {
             mixer.SetTransitionTime(5f);
             mixer.SetPivot(0.95f);
             mixer.MixWith(1);
+        }
+
+        public void EndGame() {
+            movementTransmitter.enabled = false;
+            input.enabled = false;
+            StartCoroutine(StartEndGame());
+        }
+
+        IEnumerator StartEndGame() {
+            rotateAsteroidField.SetLocalRotation(0);
+            moveAsteroidField.SetLocalPosition(0);
+            yield return new WaitForSeconds(5f);
+            cameraControl.FadeOut();
+            Open();
+            credits.SetActive(true);
         }
 
         

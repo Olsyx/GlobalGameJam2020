@@ -78,6 +78,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiver: {fileID: 6462716278606947341}
   startDisabled: 0
+  enableActions:
+  - Enable
+  disableActions:
+  - Disable
+  ablement:
+    OnEnabled:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisabled:
+      m_PersistentCalls:
+        m_Calls: []
   outline: {fileID: 4800000, guid: abbbb3b35557da147837ca9be3593fc0, type: 3}
   width: 0.02
   color: {r: 0, g: 1, b: 1, a: 1}
@@ -150,7 +161,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c342b5a87ce257645bc6c1b509233553, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -243,7 +254,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c342b5a87ce257645bc6c1b509233553, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -361,7 +372,9 @@ MonoBehaviour:
   options:
   - {x: 60, y: 0, z: 0}
   - {x: -60, y: 0, z: 0}
-  count: 0
+  OnFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6462716278414491692
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +434,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c342b5a87ce257645bc6c1b509233553, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -515,7 +528,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c342b5a87ce257645bc6c1b509233553, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -609,7 +622,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c342b5a87ce257645bc6c1b509233553, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -656,7 +669,7 @@ GameObject:
   - component: {fileID: 6462716278606947341}
   - component: {fileID: 6462716278606947340}
   m_Layer: 0
-  m_Name: Lever
+  m_Name: EndLever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,6 +723,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiver: {fileID: 6462716278606947341}
   startDisabled: 0
+  enableActions:
+  - Enable
+  disableActions:
+  - Disable
+  ablement:
+    OnEnabled:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisabled:
+      m_PersistentCalls:
+        m_Calls: []
   startState: 0
   cycle: 1
   states:
@@ -755,6 +779,9 @@ MonoBehaviour:
   - LeftHand
   - RightHand
   previousActions: []
+  OnStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6462716278867729155
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +841,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5dfa686bc2f6f9d41a2f3f33102726d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

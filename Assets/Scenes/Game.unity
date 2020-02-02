@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &160320913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2425461972566369959, guid: 16a936bf8d7ee9149975e229914ded7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1270500945}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69aa1a75e16b1b48b4079b9de6dd74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!108 &191588677 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 5962479619507630079, guid: 9b1730b8e793e97498de8cca1978b2b4,
@@ -303,6 +315,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128809905281532734, guid: 5d890bdb5ec087346943f0b94b0dc4d7,
+        type: 3}
+      propertyPath: lightSwitch
+      value: 
+      objectReference: {fileID: 6462716278446610937}
+    - target: {fileID: 6128809905281532734, guid: 5d890bdb5ec087346943f0b94b0dc4d7,
+        type: 3}
+      propertyPath: motor
+      value: 
+      objectReference: {fileID: 1488762857}
+    - target: {fileID: 6441692566656644856, guid: 5d890bdb5ec087346943f0b94b0dc4d7,
+        type: 3}
+      propertyPath: states.Array.data[1].OnEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692566656644856, guid: 5d890bdb5ec087346943f0b94b0dc4d7,
+        type: 3}
+      propertyPath: states.Array.data[1].OnEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692566656644856, guid: 5d890bdb5ec087346943f0b94b0dc4d7,
+        type: 3}
+      propertyPath: states.Array.data[1].OnEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692566656644856, guid: 5d890bdb5ec087346943f0b94b0dc4d7,
+        type: 3}
+      propertyPath: states.Array.data[1].OnEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 160320913}
+    - target: {fileID: 6441692566656644856, guid: 5d890bdb5ec087346943f0b94b0dc4d7,
+        type: 3}
+      propertyPath: states.Array.data[1].OnEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: EndGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692566656644856, guid: 5d890bdb5ec087346943f0b94b0dc4d7,
+        type: 3}
+      propertyPath: states.Array.data[1].OnEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d890bdb5ec087346943f0b94b0dc4d7, type: 3}
@@ -906,6 +958,16 @@ PrefabInstance:
       propertyPath: startPoint
       value: 
       objectReference: {fileID: 1262570322}
+    - target: {fileID: 2425461972566369959, guid: 16a936bf8d7ee9149975e229914ded7f,
+        type: 3}
+      propertyPath: moveAsteroidField
+      value: 
+      objectReference: {fileID: 1410628605}
+    - target: {fileID: 2425461972566369959, guid: 16a936bf8d7ee9149975e229914ded7f,
+        type: 3}
+      propertyPath: rotateAsteroidField
+      value: 
+      objectReference: {fileID: 1410628606}
     - target: {fileID: 5491316087212175565, guid: 16a936bf8d7ee9149975e229914ded7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1057,6 +1119,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c917b2b2c288ec49adac6cb67d485ea, type: 3}
+--- !u!114 &1410628605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1632980424762234518, guid: 7c917b2b2c288ec49adac6cb67d485ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1410628604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54715131de1d70342b4eff3319e250b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1410628606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2208340628345905776, guid: 7c917b2b2c288ec49adac6cb67d485ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1410628604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54715131de1d70342b4eff3319e250b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1488762857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4293652314686903658, guid: 3bc7078b0f4987048b96525840b420fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 2951141413568716414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b773052abe10b3a449b674d84de6c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1506655850 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5962479620357159120, guid: 9b1730b8e793e97498de8cca1978b2b4,
