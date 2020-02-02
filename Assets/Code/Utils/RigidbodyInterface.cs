@@ -7,9 +7,18 @@ namespace GGJ.Utils {
 
     public class RigidbodyInterface : MonoBehaviour {
         public Rigidbody body;
+        public bool correctVelocity;
 
         private void Awake() {
-            body = body ?? GetComponent<Rigidbody>();
+            body = body != null ? body : GetComponent<Rigidbody>();
+        }
+
+        private void Update() {
+            if (!correctVelocity) {
+                return;
+            }
+
+            body.velocity -= body.velocity * Time.deltaTime;
         }
 
         public void AddForceFromPlayer(float force) {
