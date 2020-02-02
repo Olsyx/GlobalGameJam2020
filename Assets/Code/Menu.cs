@@ -34,6 +34,7 @@ namespace GGJ.Player {
         public AudioClip mainTheme;
 
         private float alpha;
+        private bool finished;
 
         #region Mono Behaviour
         private void Awake() {
@@ -48,7 +49,7 @@ namespace GGJ.Player {
         }
 
         private void FixedUpdate() {
-            if (startButton.activeInHierarchy) {
+            if (finished || startButton.activeInHierarchy) {
                 return;
             }
 
@@ -80,7 +81,7 @@ namespace GGJ.Player {
             input.enabled = false;
             playerMovement.enabled = false;
             movementTransmitter.enabled = false;
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
 
@@ -119,6 +120,7 @@ namespace GGJ.Player {
         }
 
         public void EndGame() {
+            finished = true;
             movementTransmitter.enabled = false;
             input.enabled = false;
             StartCoroutine(StartEndGame());
