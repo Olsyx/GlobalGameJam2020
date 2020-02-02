@@ -17,7 +17,7 @@ namespace GGJ.Player {
         public float mouseSensitivity = 1f;
 
         private Rigidbody body;
-        private Vector3 lastMouse = new Vector3(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
+        private float rotationY = 0f;
 
         #region Mono Behaviour
         private void Awake() {
@@ -56,19 +56,10 @@ namespace GGJ.Player {
 
         #region Control
         protected void FollowMouse() {
-            lastMouse = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-            lastMouse = new Vector3(-lastMouse.y * mouseSensitivity, lastMouse.x * mouseSensitivity, 0);
-            lastMouse = new Vector3(transform.eulerAngles.x + lastMouse.x, transform.eulerAngles.y + lastMouse.y, 0);
-
-            if (lastMouse.x < 320 && lastMouse.x > 180) {
-                lastMouse.x = 320f;
-            } else if (lastMouse.x > 40) {
-                lastMouse.x = 40f;
-            } else if (lastMouse.x < -40) {
-                lastMouse.x = -40f;
-            }
-            transform.eulerAngles = lastMouse;
-            lastMouse = Input.mousePosition;
+            float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
+            rotationY += Input.GetAxis("Mouse Y") * mouseSensitivity;
+            rotationY = Mathf.Clamp(rotationY, -60, 60);
+            transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0.0f);
         }
 
         protected void Move(Direction direction) {
@@ -103,6 +94,32 @@ namespace GGJ.Player {
                     return -transform.up;
             }
             return Vector3.zero;
+        }
+
+        /// <summary>
+        /// Clamps a given angle in degrees into the range [0, 360]
+        /// </summary>
+        /// <param name="degrees"></param>
+        /// <returns></returns>
+        public float ClampAngle(float degrees) {
+            float correctAngle = degrees % 360f;
+
+            if (correctAngle < 0) {
+                correctAngle = correctAngle + 360f;
+            }
+
+            return correctAngle;
+        }
+
+        /// <summary>
+        /// Clamps a given angle in degrees into the range [0, 360]
+        /// </summary>
+        /// <param name="degrees"></param>
+        /// <returns></returns>
+        public Vector3 ClampAngle(Vector3 angular) {
+            return new Vector3(ClampAngle(angular.x),
+                               ClampAngle(angular.y),
+                               ClampAngle(angular.z));
         }
         #endregion
 
