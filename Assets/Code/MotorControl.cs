@@ -23,6 +23,10 @@ namespace GGJ.Behaviours {
         }
 
         void LightSwitchChanged() {
+            if (progress >= order.Count) {
+                return;
+            }
+
             if (lightSwitch.CurrentState == "On") {
                 if (progress < order.Count) {
                     EmptyAll();

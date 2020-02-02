@@ -20,16 +20,21 @@ namespace GGJ.Behaviours {
         }
 
         void LightSwitchChanged() {
+            EvaluateState();
+        }
+
+        void OnMotorFinished() {
+            motorEnabled = true;
+            EvaluateState();
+        }
+
+        void EvaluateState() {
             bool lightsOn = lightSwitch.CurrentState == "On";
             if (lightsOn && motorEnabled) {
                 OnReadyForEnd?.Invoke();
             } else {
                 OnEndPrevented?.Invoke();
             }
-        }
-
-        void OnMotorFinished() {
-            motorEnabled = true;
         }
     }
 }
