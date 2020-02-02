@@ -59,6 +59,14 @@ namespace GGJ.Player {
             lastMouse = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
             lastMouse = new Vector3(-lastMouse.y * mouseSensitivity, lastMouse.x * mouseSensitivity, 0);
             lastMouse = new Vector3(transform.eulerAngles.x + lastMouse.x, transform.eulerAngles.y + lastMouse.y, 0);
+
+            if (lastMouse.x < 320 && lastMouse.x > 180) {
+                lastMouse.x = 320f;
+            } else if (lastMouse.x > 40) {
+                lastMouse.x = 40f;
+            } else if (lastMouse.x < -40) {
+                lastMouse.x = -40f;
+            }
             transform.eulerAngles = lastMouse;
             lastMouse = Input.mousePosition;
         }
