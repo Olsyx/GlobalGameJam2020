@@ -29,11 +29,24 @@ namespace GGJ.Others {
         private List<Item> items = new List<Item>();
 
         #region Mono Behaviour
+        private void OnDisable() {
+            items.Clear();
+            Set(States.Inactive);
+        }
+
         private void FixedUpdate() {
+            if (!enabled) {
+                return;
+            }
+
             EvaluateState();
         }
 
         private void OnTriggerEnter(Collider other) {
+            if (!enabled) {
+                return;
+            }
+
             Item item = other.GetComponentInParent<Item>();
             if (item == null || !detectableItems.Contains(item.Id)) {
                 return;
@@ -44,6 +57,10 @@ namespace GGJ.Others {
         }
 
         private void OnTriggerExit(Collider other) {
+            if (!enabled) {
+                return;
+            }
+
             Item item = other.GetComponentInParent<Item>();
             if (item == null || !detectableItems.Contains(item.Id)) {
                 return;

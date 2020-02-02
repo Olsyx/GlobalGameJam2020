@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GGJ.Utils {
     public class Transformer : MonoBehaviour {
@@ -11,6 +12,7 @@ namespace GGJ.Utils {
         public Transform target;
         public float time = 0;
         public List<Vector3> options = new List<Vector3>();
+        public UnityEvent OnFinished = new UnityEvent();
 
         protected float count;
         protected Modes mode;
@@ -74,6 +76,7 @@ namespace GGJ.Utils {
                     target.localScale = to;
                     break;
             }
+            OnFinished?.Invoke();
         }
         #endregion
 
@@ -93,6 +96,7 @@ namespace GGJ.Utils {
             }
 
             target.position = to;
+            OnFinished?.Invoke();
         }
 
         public void SetLocalPosition(int option) {
@@ -110,6 +114,7 @@ namespace GGJ.Utils {
             }
 
             target.localPosition = to;
+            OnFinished?.Invoke();
         }
 
         public void SetRotation(int option) {
@@ -127,6 +132,7 @@ namespace GGJ.Utils {
             }
 
             target.rotation = toRotation;
+            OnFinished?.Invoke();
         }
 
         public void SetLocalRotation(int option) {
@@ -144,6 +150,7 @@ namespace GGJ.Utils {
             }
 
             target.localRotation = toRotation;
+            OnFinished?.Invoke();
         }
 
         public void SetScale(int option) {
@@ -161,6 +168,7 @@ namespace GGJ.Utils {
             }
 
             target.localScale = to;
+            OnFinished?.Invoke();
         }
         #endregion
 

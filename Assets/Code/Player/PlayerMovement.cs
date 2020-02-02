@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GGJ.Player { 
     [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(BoxCollider))]
+    [RequireComponent(typeof(Collider))]
     public class PlayerMovement : Receiver {
         public enum Direction {
             Forward, Backwards, Left, Right, Up, Down
